@@ -1,0 +1,13 @@
+{
+  "name": "test-playwright",
+  "version": "1.0.0",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "rimraf": "^5.0.0"
+  },
+  "scripts": {
+    "pretest": "rimraf test-results",
+    "test": "playwright test"
+  }
+}
