@@ -5,7 +5,7 @@ test('basic test with headful mode', async () => {
   const page = await browser.newPage();
   
   await page.goto('https://example.com');
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(2000);
   await expect(page).toHaveTitle(/Example Domain/);
 
   await browser.close();
