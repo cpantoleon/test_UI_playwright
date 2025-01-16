@@ -1,12 +1,20 @@
-const { test, expect, chromium } = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
+const ExamplePage = require('./pages/examplePage');
 
-test('basic test with headful mode', async () => {
-  const browser = await chromium.launch({ headless: false });
-  const page = await browser.newPage();
-  
-  await page.goto('https://example.com');
-  await page.waitForTimeout(2000);
-  await expect(page).toHaveTitle(/Example Domain/);
+test.describe('Example.com Tests', () => {
+  let examplePage;
 
-  await browser.close();
+  test.beforeEach(async ({ page }) => {
+    examplePage = new ExamplePage(page);
+    await examplePage.goto();
+  });
+
+  test('Verify Title, Heading, and Click More Info', async ({ page }) => {
+    await examplePage.verifyTitle();
+    await examplePage.verifyHeadingText();
+    await examplePage.clickMoreInfo();
+    await page.waitForTimeout(5000);
+    await page.waitForLoadState('load');
+    await expect(page).toHaveURL(/iana.org/);
+  });
 });
