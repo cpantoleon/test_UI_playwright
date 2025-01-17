@@ -1,10 +1,10 @@
 const { expect } = require('@playwright/test');
+const { examplePageSelectors } = require('./locators');
 
 class ExamplePage {
   constructor(page) {
     this.page = page;
-    this.heading = page.locator('h1');
-    this.moreInfoLink = page.locator('a:has-text("More information")');
+    this.locators = examplePageSelectors;
   }
 
   async goto() {
@@ -16,11 +16,12 @@ class ExamplePage {
   }
 
   async verifyHeadingText() {
-    await expect(this.heading).toHaveText('Example Domain');
+    const heading = await this.page.textContent(this.locators.heading);
+    expect(heading).toBe('Example Domain');
   }
 
   async clickMoreInfo() {
-    await this.moreInfoLink.click();
+    await this.page.click(this.locators.moreInfoLink);
   }
 }
 

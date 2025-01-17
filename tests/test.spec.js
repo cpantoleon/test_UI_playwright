@@ -13,8 +13,22 @@ test.describe('Example.com Tests', () => {
     await examplePage.verifyTitle();
     await examplePage.verifyHeadingText();
     await examplePage.clickMoreInfo();
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(2000);
     await page.waitForLoadState('load');
     await expect(page).toHaveURL(/iana.org/);
   });
+
+  test('Verify Navigation to More Information Page', async ({ page }) => {
+    await examplePage.clickMoreInfo();
+    await page.waitForTimeout(2000);
+    await page.waitForLoadState('load');
+    await expect(page).toHaveURL(/iana.org/);
+    const title = await page.title();
+    expect(title).toContain('Example Domains');
+  });
+
+  test.afterEach(async ({ page }) => {
+    await page.close();
+  });
+
 });
