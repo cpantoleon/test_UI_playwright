@@ -1,0 +1,17 @@
+const { test, expect } = require('@playwright/test');
+const ExamplePage = require('../pages/examplePage');
+
+let examplePage;
+
+test.describe('Example.com Tests', () => {
+  test.beforeEach(async ({ page }) => {
+    examplePage = new ExamplePage(page);
+    await examplePage.goto();
+  });
+
+  test.afterEach(async ({ page }) => {
+    await page.close();
+  });
+});
+
+module.exports = { examplePage };
