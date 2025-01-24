@@ -8,7 +8,7 @@ class ExamplePage {
   }
 
   async goto() {
-    await this.page.goto('https://www.tmdn.org/oipp/');
+    await this.page.goto('https://www.saucedemo.com/');
   }
 
   async verifyTitle() {
