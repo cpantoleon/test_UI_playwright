@@ -1,0 +1,7 @@
+Users:
+    Valid:
+        userName: standard_user
+        password: secret_sauce
+    Invalid:
+        userName: invalidUserName
+        password: invalid

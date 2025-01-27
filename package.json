@@ -7,7 +7,11 @@
     "rimraf": "^5.0.0"
   },
   "scripts": {
-    "pretest": "rimraf test-results",
-    "test": "playwright test"
+    "pretest": "rimraf test-results || true",
+    "test": "playwright test",
+    "login": "playwright test tests/Login.spec.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
   }
 }

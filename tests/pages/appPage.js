@@ -1,14 +1,10 @@
 const { expect } = require('@playwright/test');
-const { examplePageSelectors } = require('./locators');
+const { examplePageSelectors } = require('../locators/application');
 
-class ExamplePage {
+class AppPage {
   constructor(page) {
     this.page = page;
     this.locators = examplePageSelectors;
-  }
-
-  async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
   }
 
   async verifyTitle() {
@@ -25,4 +21,4 @@ class ExamplePage {
   }
 }
 
-module.exports = ExamplePage;
+module.exports = AppPage;
