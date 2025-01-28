@@ -1,8 +1,9 @@
 const { test: base } = require('@playwright/test');
 const CommonPage = require('../pages/commonSteps');
 const LoginPage = require('../pages/loginPage');
+const LoginQuestions = require('../questions/loginQuestions');
+const UIQuestions = require('../questions/uiQuestions');
 
-// Define custom fixtures
 exports.test = base.extend({
   commonSteps: async ({ page }, use) => {
     const commonSteps = new CommonPage(page);
@@ -13,4 +14,12 @@ exports.test = base.extend({
     const loginPage = new LoginPage(page);
     await use(loginPage);
   },
+  loginQuestions: async ({ page }, use) => {
+    const loginQuestions = new LoginQuestions(page);
+    await use(loginQuestions);
+  },
+  uiQuestions: async ({ page }, use) => {
+    const uiQuestions = new UIQuestions(page);
+    await use(uiQuestions);
+  }
 });

@@ -1,6 +1,6 @@
 const applicationLocators = {
-    heading: 'h1', 
-    moreInfoLink: 'a:has-text("More information")'
+    swagLabsLogo: '.app_logo',
+    menuBar: '.bm-burger-button'
   };
   
   module.exports = { applicationLocators };
