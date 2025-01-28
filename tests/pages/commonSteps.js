@@ -11,7 +11,7 @@ class CommonPage {
     await this.page.goto(this.url);
   }
 
-  async loginWithCredentials(loginPage, testData, userType) {
+  async loginWithCredentials(loginQuestions,loginPage, testData, userType) {
     let userName, password;
 
     switch (userType) {
@@ -27,11 +27,11 @@ class CommonPage {
         throw new Error(`Unknown user type: ${userType}`);
     }
 
-    await loginPage.usernameFieldIsDisplayed();
+    await loginQuestions.usernameFieldIsDisplayed();
     await loginPage.enterUsername(userName);
-    await loginPage.passwordFieldIsDisplayed();
+    await loginQuestions.passwordFieldIsDisplayed();
     await loginPage.enterPassword(password);
-    await loginPage.inputButtonIsAvailable();
+    await loginQuestions.inputButtonIsAvailable();
     await loginPage.clickLoginButton();
   }
 }

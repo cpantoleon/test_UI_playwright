@@ -7,24 +7,12 @@ class LoginPage {
     this.locators = loginLocators;
   }
 
-  async usernameFieldIsDisplayed() {
-    await expect(this.page.locator(this.locators.usernameField)).toBeVisible();
-  }
-
   async enterUsername(username) {
     await this.page.fill(this.locators.usernameField, username);
   }
 
-  async passwordFieldIsDisplayed() {
-    await expect(this.page.locator(this.locators.passwordField)).toBeVisible();
-  }
-
   async enterPassword(password) {
     await this.page.fill(this.locators.passwordField, password);
-  }
-
-  async inputButtonIsAvailable() {
-    await expect(this.page.locator(this.locators.inputButton)).toBeEnabled();
   }
 
   async clickLoginButton() {

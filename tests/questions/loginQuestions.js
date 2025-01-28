@@ -11,6 +11,18 @@ class LoginQuestions {
     const actualMessage = await this.page.locator(this.locators.invalidLoginMessage).textContent();
     await expect(actualMessage.trim()).toBe(expectedMessage);
   }
+
+  async usernameFieldIsDisplayed() {
+    await expect(this.page.locator(this.locators.usernameField)).toBeVisible();
+  }
+
+  async passwordFieldIsDisplayed() {
+    await expect(this.page.locator(this.locators.passwordField)).toBeVisible();
+  }
+
+  async inputButtonIsAvailable() {
+    await expect(this.page.locator(this.locators.inputButton)).toBeEnabled();
+  }
 }
 
 module.exports = LoginQuestions;
