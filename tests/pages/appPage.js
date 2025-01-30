@@ -1,23 +1,18 @@
 const { expect } = require('@playwright/test');
-const { examplePageSelectors } = require('../locators/application');
+const { applicationLocators } = require('../locators/application');
 
 class AppPage {
   constructor(page) {
     this.page = page;
-    this.locators = examplePageSelectors;
+    this.locators = applicationLocators;
   }
 
-  async verifyTitle() {
-    await expect(this.page).toHaveTitle(/Example Domain/);
+  async clickMenuBarButton() {
+    await this.page.click(this.locators.menuBar);
   }
 
-  async verifyHeadingText() {
-    const heading = await this.page.textContent(this.locators.heading);
-    expect(heading).toBe('Example Domain');
-  }
-
-  async clickMoreInfo() {
-    await this.page.click(this.locators.moreInfoLink);
+  async clickLogoutButton() {
+    await this.page.click(this.locators.logoutButton);
   }
 }
 

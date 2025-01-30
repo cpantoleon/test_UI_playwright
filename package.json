@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.49.1",
     "rimraf": "^5.0.0"
   },
   "scripts": {
     "pretest": "rimraf test-results || true",
     "test": "playwright test",
-    "login": "playwright test tests/Login.spec.js"
+    "login": "playwright test tests/Login.spec.js --grep"
   },
   "dependencies": {
+    "@playwright/test": "^1.50.0",
     "js-yaml": "^4.1.0"
   }
 }

@@ -3,6 +3,7 @@ const CommonPage = require('../pages/commonSteps');
 const LoginPage = require('../pages/loginPage');
 const LoginQuestions = require('../questions/loginQuestions');
 const UIQuestions = require('../questions/uiQuestions');
+const AppPage = require('../pages/appPage');
 
 exports.test = base.extend({
   commonSteps: async ({ page }, use) => {
@@ -21,5 +22,9 @@ exports.test = base.extend({
   uiQuestions: async ({ page }, use) => {
     const uiQuestions = new UIQuestions(page);
     await use(uiQuestions);
+  },
+  appPage: async ({ page }, use) => {
+    const appPage = new AppPage(page);
+    await use(appPage);
   }
 });

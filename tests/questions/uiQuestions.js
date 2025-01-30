@@ -1,5 +1,5 @@
 const { expect } = require('@playwright/test');
-const { applicationLocators } = require('../locators/application'); // Correct the import path
+const { applicationLocators } = require('../locators/application');
 
 class LoginQuestions {
     constructor(page) {
@@ -9,6 +9,10 @@ class LoginQuestions {
 
   async verifyUserLoggedInSuccessfully() {
     await expect(this.page.locator(this.locators.menuBar)).toBeVisible();
+  }
+
+  async verifyLogoutButtonIsVisible() {
+    await expect(this.page.locator(this.locators.logoutButton)).toBeVisible();
   }
 }
 
