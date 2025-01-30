@@ -8,7 +8,8 @@
   "scripts": {
     "pretest": "rimraf test-results || true",
     "test": "playwright test",
-    "login": "playwright test tests/Login.spec.js --grep"
+    "login": "playwright test tests/Login.spec.js --grep",
+    "app": "playwright test tests/App.spec.js --grep"
   },
   "dependencies": {
     "@playwright/test": "^1.50.0",
