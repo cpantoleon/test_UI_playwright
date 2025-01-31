@@ -8,3 +8,15 @@ Users:
 Messages:
     InvalidLogin:
         message: "Epic sadface: Username and password do not match any user in this service"
+    Application:
+        message: "Thank you for your order!"
+CheckOutInformation:
+    FirstNameValues:
+        firstName1: testFirstName
+        firstName2: Christos
+    LastNameValues:
+        lastName1: testLastName
+        lastName2: ChristosWithLastName
+    ZipCodeValues:
+        zipCode1: "15555"
+        zipCode2: "20000"

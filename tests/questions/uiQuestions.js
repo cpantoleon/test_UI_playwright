@@ -14,6 +14,11 @@ class LoginQuestions {
   async verifyLogoutButtonIsVisible() {
     await expect(this.page.locator(this.locators.logoutButton)).toBeVisible();
   }
+
+  async verifyOrderIsPlaced() {
+    const actualMessage = await this.page.locator(this.locators.thankYouMessage).textContent();
+    await expect(actualMessage.trim()).toBe(expectedMessage);
+  }
 }
 
 module.exports = LoginQuestions;

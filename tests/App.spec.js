@@ -5,9 +5,17 @@ const { readYaml } = require('./utils/readYaml');
 const testData = readYaml('../data/testData.yml');
 
 test.describe('User Purchase an item', () => {
-  test('User Purchase an item [App_1] [App]', async ({ commonSteps, loginPage, uiQuestions, loginQuestions }) => {
+  test('User Purchase an item [App_1] [App]', async ({ commonSteps, loginPage, uiQuestions, loginQuestions, appPage }) => {
     await commonSteps.loginWithCredentials(loginQuestions,loginPage, testData, 'Valid');
-    await uiQuestions.verifyUserLoggedInSuccessfully();
-    await wait(2000)
+    await uiQuestions.verifyUserLoggedInSuccessfully(testData.Messages.Application.message);
+    await appPage.clickOnProduct();
+    await appPage.clickAddToCart();
+    await appPage.clickOnCart();
+    await appPage.clickOnCheckout();
+    await appPage.enterFirstName(testData.CheckOutInformation.FirstNameValues.firstName1);
+    await appPage.enterLastName(testData.CheckOutInformation.LastNameValues.lastName1);
+    await appPage.enterZipCode(testData.CheckOutInformation.ZipCodeValues.zipCode1);
+    await appPage.clickOnContinue();
+    await appPage.clickOnFinish();
   });
 });
